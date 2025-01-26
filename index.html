@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Tirage Quotidien</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        .button {
+            padding: 10px 20px;
+            margin: 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+        .button:hover {
+            background-color: #45a049;
+        }
+        #carteDuJour {
+            width: 500px; /* Largeur de la carte */
+            height: 500px; /* Hauteur de la carte */
+            background-size: contain; /* Afficher l'image entière */
+            background-repeat: no-repeat; /* Pas de répétition de l'image */
+            background-position: center; /* Centrer l'image */
+            margin: 20px auto; /* Centre la carte horizontalement */
+            border: 2px solid #4CAF50; /* Bordure autour de la carte */
+            border-radius: 10px; /* Coins arrondis */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Effet d'ombre */
+        }
+        #resultat {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Mon Tirage Quotidien</h1>
+    <button class="button" id="carteDuJourBtn">Ma carte du jour</button>
+    <div id="carteDuJour" style="display: none;"></div>
+    <div id="resultat"></div>
+
+    <script>
+        document.getElementById('carteDuJourBtn').addEventListener('click', () => {
+            const carteDuJour = document.getElementById('carteDuJour');
+            const resultat = document.getElementById('resultat');
+
+            // Choisir une carte au hasard (remplacer 'image/card' par vos vraies images de cartes)
+            const totalCartes = 78; // Nombre total de cartes
+            const carteAleatoire = `url('image/card${Math.floor(Math.random() * totalCartes) + 1}.png')`;
+
+            // Afficher la carte du jour
+            carteDuJour.style.backgroundImage = carteAleatoire;
+            carteDuJour.style.display = 'block'; // Afficher l'élément
+            resultat.textContent = "Voici votre carte du jour !";
+        });
+    </script>
+</body>
+</html>
